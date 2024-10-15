@@ -1,0 +1,70 @@
+EN LAS SIGUIENTES PREGUNTAS MARCAR LA RESPUESTA CORRECTA
+
+A) Si tengo una función con la siguiente declaración de tipos de la función g
+
+  g :: [(a,b)] -> (a -> c, b -> d) -> [(c,d)] puedo decir que:
+  
+  1) Es un función polimórfica Ad hoc
+  2) Es una función recursiva
+  3) Es una función polimórfica Paramétrica
+  4) Es un constructor
+  5) Ninguna de las anteriores.
+
+  respuesta edu: 3) Es una función polimórfica Paramétrica
+  respuesta correcta: 3) Es una función polimórfica Paramétrica
+
+
+
+B) Si tengo una función con la siguiente declaración
+
+  g :: a -> b -> (a -> b) -> Bool
+  g x y g = g x == y
+  
+  puedo decir que:
+  1) Es un constructor
+  2) La declaración de tipos está mal, porque debería incluir una clase de tipos.
+  3) Es un función polimórfica Ad hoc
+  4) La definición de la función es incorrecta, debería utilizar pattern matching.
+  5) Ninguna de las anteriores.
+
+  respuesta edu: 3) Es un función polimórfica Ad hoc
+  respuesta correcta: 2) La declaración de tipos está mal, porque debería incluir una clase de tipos.
+
+  
+
+C) Dada la siguiente declaración de función en Haskell:
+
+  valorODefault :: Int -> Maybe Int -> Int
+  valorODefault i Nothing = i
+  valorODefault _ (Just x) = x
+
+
+  ¿Cuál es el propósito de la función valorODefault y cómo maneja el valor
+  Nothing?
+  
+  1) La función valorODefault devuelve x para cualquier Just o i en cualquier otro caso.
+  2) La función valorODefault lanza un error cuando se le pasa Nothing.
+  3) La función valorODefault siempre devuelve i independientemente de su entrada.
+  4) La función valorODefault solo funciona con valores Nothing y no con Just
+
+  respuesta edu: 
+  respuesta correcta: 1) La función valorODefault devuelve x para cualquier Just o i en cualquier otro caso.
+
+
+
+D) Dada la siguiente declaración de tipo en Haskell:
+
+  data PodraSer a = NoEs | QuizaSi | Definitivamente a
+  
+  Puedo afirmar que :
+  1) Ese tipo está mal definido, debería haber utilizado el comando type.
+  2) No se puede definir un tipo de esa manera.
+  3) El tipo PodraSer a tiene tres constructores, dos de los cuales tienen tipo PodraSer a.
+  4) El tipo PodraSer a tiene tres constructores, tres de los cuales tienen tipo PodraSer a.
+  5) Ninguna de las anteriores.
+
+  respuesta edu: 2) No se puede definir un tipo de esa manera.
+  respuesta correcta: 3) El tipo PodraSer a tiene tres constructores, dos de los cuales tienen tipo PodraSer a.
+
+
+

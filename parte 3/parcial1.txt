@@ -1,0 +1,22 @@
+--EJERCICIO 3
+
+--a 
+
+data EstadoHojas = MuchasQuemadas | PocasQuemadas | Saludables
+type Altura = Int
+type CantHojas = Int
+type CantidadHojasFlorecidas = Int
+type EdadMeses = Int
+
+data RegistroPlanta = DatoPlanta EstadoHojas Altura CantHojas CantidadHojasFlorecidas EdadMeses RegistroPlanta
+                    | NoDato
+
+
+--b 
+trasplantar :: RegistroPlanta -> Int -> Bool
+trasplantar NoDato _  = False
+
+
+--c 
+devolverEstado :: RegistroPlanta -> Int -> Maybe EstadoHojas
+devolverEstado registroplanta 0 = Nothing

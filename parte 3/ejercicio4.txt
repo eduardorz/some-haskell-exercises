@@ -1,0 +1,58 @@
+type CantidadCarga = Int
+type Kilometraje = Int
+type Modelo = Int
+
+
+data TipoProducto = Soda | Agua | Dispenser deriving Show --NO EQ NO ORD
+type Litros = Int
+type Precio = Int
+
+
+data Horario = Mañana | Tarde deriving Show --NO EQ NO ORD
+type Horas = Int
+
+
+
+--a 
+data RecursoSoderia = Camion CantidadCarga Kilometraje Modelo
+                    | Producto TipoProducto Litros Precio
+                    | Empleado Horario Horas
+
+
+
+--b
+cuantosProducto :: [RecursoSoderia] -> TipoProducto -> Int
+cuantosProducto [ ] _ = 0
+cuantosProducto (x:xs) tp = case x of
+    Producto tipoProd _ _ | eqTipoProducto tipoProd tp -> 1 + cuantosProducto xs tp
+    _ -> cuantosProducto xs tp
+
+
+{-
+    EJEMPLOS DE EJECUCION
+    *Main> let recursosoderia = [Producto Soda 5 200, Producto Soda 5 200, Producto Agua 7 350]
+    *Main> cuantosProducto recursosoderia Soda
+    2
+    *Main> cuantosProducto recursosoderia Agua
+    1
+    *Main> cuantosProducto recursosoderia Dispenser
+    0
+-}
+
+
+
+-- c
+instance Eq RecursoSoderia where
+    (Producto _ lts precio ) == (Producto _ lts' precio') = True 
+    (Empleado horario _ ) == (Empleado horario' _ ) = True
+    (Camion cantCarga _ _ ) == (Camion cantCarga' _ _ ) = True
+
+
+
+eqTipoProducto :: TipoProducto -> TipoProducto -> Bool
+eqTipoProducto Soda Soda = True
+eqTipoProducto Agua Agua = True
+eqTipoProducto Dispenser Dispenser = True 
+eqTipoProducto _ _ = False
+
+

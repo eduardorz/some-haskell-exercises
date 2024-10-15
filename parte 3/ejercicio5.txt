@@ -1,0 +1,19 @@
+type NombreArtista = String
+type NombreCancion = String
+
+data Genero = Rock | Indie | Pop | Rap
+
+type Duracion = Int
+type PuntuacionComunidad = Int
+type PropiaPuntuacion = Int
+
+
+
+--a 
+data ListaMusica = Cancion NombreArtista NombreCancion Genero Duracion PuntuacionComunidad PropiaPuntuacion ListaMusica
+                 | SinCanciones
+
+--b
+artistaValido :: ListaMusica -> NombreArtista -> Bool
+artistaValido [ ] _ = False
+artistaValido (Cancion nomArtista _ genero duracion _ _ _ ) nomArtista | genero == Rock && duracion > 10 = True
